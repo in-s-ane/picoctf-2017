@@ -1,0 +1,9 @@
+*.s[a-w][a-z]
+*~
+\#*\#
+.\#*
+a.out
+*.class
+*.pyc
+*.class
+.DS_Store
