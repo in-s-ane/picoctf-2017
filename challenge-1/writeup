@@ -1,0 +1,6 @@
+View source, see the js
+
+make_ajax_req(input):
+var params = "pword_valid=" + input.toString();
+
+It probably takes "true"/"false", so call it on console with "true".
