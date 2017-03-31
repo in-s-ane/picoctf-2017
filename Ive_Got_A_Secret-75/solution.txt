@@ -1,0 +1,19 @@
+There's a format string vuln here:
+
+printf(buffer);
+
+Open up gdb, break at the jump after the check in the (secret == not_secret) conditional.
+
+0x080486F6 cmp     edx, eax
+0x080486F8 jnz     short loc_804871C
+
+(gdb) b *0x080486F8
+(gdb) c
+
+In the prompt, give it "%p." repeated a bunch of times to view things in the stack.
+Then give it 0x41414141 when it asks for the secret.
+
+At the break, print both $edx and $eax. $eax is 0x41414141, not_secret.
+secret is 0x5364b699 (in this case), which was the 6th item in the stack list printed by our "%p" format string exploit.
+
+Connect to pico servers, give it "%p." 6 times, then give it the 6th item printed for the secret.
