@@ -1,0 +1,11 @@
+The program asks us to give it the raw form of "99d9835d83647dcf4cb202a51e1c29bc", which is hex-encoded.
+We can use python to decode the string, and bash to pipe it into the program.
+
+james9909@shell-web:/problems/9bbf83df34f9c5239f329f977f4a66c1$ python -c "print '99d9835d83647dcf4cb202a51e1c29bc'.decode('hex')" | ./hex2raw
+Give me this in raw form (0x41 -> 'A'):
+99d9835d83647dcf4cb202a51e1c29bc
+
+You gave me:
+99d9835d83647dcf4cb202a51e1c29bc
+Yay! That's what I wanted! Here be the flag:
+84b0a5a216620b05b1cae86508dad925

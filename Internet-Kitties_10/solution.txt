@@ -1,0 +1,7 @@
+The problem tell us that there is something to be found shell2017.picoctf.com:2720
+We can use the netcat (nc) command to interact with it.
+
+$ nc shell2017.picoctf.com 2720
+Yay! You made it!
+Take a flag!
+0385d4bad438ffd596c049d5796e83a2

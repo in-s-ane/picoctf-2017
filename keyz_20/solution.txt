@@ -1,0 +1,10 @@
+Create an ssh key with `ssh-keygen -t rsa`. If you already have one, it's a simple matter of
+copying the contents of ~/.ssh/id_rsa.pub on your local machine to ~/.ssh/authorized_keys on the remote.
+Once that's complete, we can ssh from our local machine to the remote server.
+
+$ ssh james9909@shell2017.picoctf.com
+Congratulations on setting up SSH key authentication!
+Here is your flag: who_needs_pwords_anyways
+james9909@shell-web:~$
+
+who_needs_pwords_anyways

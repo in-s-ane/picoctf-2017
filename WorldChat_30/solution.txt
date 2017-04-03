@@ -1,0 +1,15 @@
+Looking through the chat, we see that "flagperson" is giving away parts of the flag.
+We can filter out what they're saying by running
+$ nc shell2017.picoctf.com 11511 | grep flagperson
+
+00:16:02 flagperson: this is part 1/8 of the flag - 8d84
+00:16:09 flagperson: this is part 2/8 of the flag - 913f
+00:16:13 flagperson: this is part 3/8 of the flag - 84bd
+00:16:18 flagperson: this is part 4/8 of the flag - 68a4
+00:16:22 flagperson: this is part 5/8 of the flag - 6576
+00:16:22 flagperson: this is part 6/8 of the flag - 3e48
+00:16:26 flagperson: this is part 7/8 of the flag - d9d9
+00:16:34 flagperson: this is part 8/8 of the flag - ca1c
+
+Combine the parts to get the flag:
+8d84913f84bd68a465763e48d9d9ca1c

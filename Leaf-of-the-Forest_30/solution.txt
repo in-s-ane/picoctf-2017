@@ -1,0 +1,7 @@
+Again, using `find` we can list all the files and directories within the tree.
+Since there are so many folders, we can filter the flag out by grepping for the path containing "flag".
+
+james9909@shell-web:/problems/7d91c03dff81a9c95bffb6d69358c92d$ find | grep flag
+./forest/tree6bff04/trunk76b3/trunke4f0/trunk392a/trunkfd5e/trunk19bb/trunkdb28/trunk08ee/branch461e/flag
+james9909@shell-web:/problems/7d91c03dff81a9c95bffb6d69358c92d$ cat ./forest/tree6bff04/trunk76b3/trunke4f0/trunk392a/trunkfd5e/trunk19bb/trunkdb28/trunk08ee/branch461e/flag
+7ffb59b2f309c09959ba333d0af88565

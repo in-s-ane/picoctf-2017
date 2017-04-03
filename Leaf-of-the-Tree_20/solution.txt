@@ -1,0 +1,38 @@
+Judging from the name of the problem, we can guess that there is a maze of folders we need to dig through
+to get the flag. The problem suggests using cat, ls, and tab completion, but we can use `find` to easily find the flag
+
+james9909@shell-web:/problems/f8fc794974ad619254d983bc423608c6$ find
+.
+./trunk
+./trunk/trunk47a0
+./trunk/trunk47a0/trunk599f
+./trunk/trunk47a0/trunk599f/trunk4e66
+./trunk/trunk47a0/trunk599f/trunk4e66/branchc65c
+./trunk/trunk47a0/trunk599f/trunk4e66/branchc65c/leafa242
+./trunk/trunk47a0/trunk599f/trunk4e66/branchc65c/leaf01ee
+./trunk/trunk47a0/trunk599f/trunk4e66/branchc65c/leaf3fdc
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42/flag
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/branch4861
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/branch4861/leaf40b4
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/branch629a
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/branch629a/leaf0c77
+./trunk/trunk47a0/trunk599f/trunk4e66/branchd0af
+./trunk/trunk47a0/trunk599f/trunk4e66/branchd0af/leafc0d4
+./trunk/trunk47a0/trunk599f/trunk4e66/branchd0af/leaf2e04
+./trunk/trunk47a0/trunk599f/branch2f21
+./trunk/trunk47a0/trunk599f/branch2f21/leaf93db
+./trunk/trunk47a0/trunk599f/branch2f21/leaf2ae7
+./trunk/trunk47a0/trunk599f/branch2f21/leaf4c69
+./trunk/trunk47a0/branchfded
+./trunk/trunk47a0/branchfded/leaf28a9
+./trunk/branch8a86
+./trunk/branch8a86/leafebed
+./trunk/branch8a86/leaf43f1
+./trunk/branch8a86/leaf94be
+james9909@shell-web:/problems/f8fc794974ad619254d983bc423608c6$ cat ./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42/flag
+
+a2916629ba334b79632b6af945131ea2

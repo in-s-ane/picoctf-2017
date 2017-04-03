@@ -1,0 +1,12 @@
+Looking at the source code for the page, we find the following comment:
+
+<!-- Cool! Look at me! This is an HTML file. It describes what each page contains in a format your browser can understand. -->
+<!-- The first part of the flag (there are 3 parts) is 4eabea7c5b1 -->
+<!-- What other types of files are there in a webpage? -->
+
+Now we have the first part of the flag: 4eabea7c5b1
+
+The second part of the flag can be found in hacker.css: e8e0c84cc61
+The third part of the flag can be found in script.js: 2a79d2dc833
+
+Combine all 3 parts for the flag: 4eabea7c5b1e8e0c84cc612a79d2dc833

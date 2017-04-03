@@ -1,0 +1,3 @@
+Using an online substitution cipher cracker like quippiuq, we can decrypt the cipertext to get the flag:
+
+IFONLYMODERNCRYPTOWASLIKETHIS

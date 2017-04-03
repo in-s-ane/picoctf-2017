@@ -1,0 +1,8 @@
+The program gives us the raw flag, but we need to hex encode it for the real flag
+We can do this with a bash one-liner that cuts off the first 13 characters and encodes the rest
+to hex
+
+james9909@shell-web:/problems/0dec9a999595d0801333c08899bf2b03$ ./raw2hex
+The flag is:î- ¼ùU1DG£Hj
+james9909@shell-web:/problems/0dec9a999595d0801333c08899bf2b03$ ./raw2hex | cut -c13- | xxd -p
+c3aeefde2d8fa0bc81f955314447a3480a

@@ -1,0 +1,9 @@
+Looking at the packets for the post request to /pages/main.html, we find the following
+url-encoded credentials being transmitted over the network:
+
+userid=mathewsr&pswrd=aHJLUVNTTFd2Rw%3D%3D
+
+The password is base64 encoded, so decode from that to get the flag:
+
+>>> "aHJLUVNTTFd2Rw==".decode("base64")
+hrKQSSLWvG

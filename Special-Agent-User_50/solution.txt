@@ -1,0 +1,16 @@
+Looking at one of the TCP streams, we find the following stream content:
+
+GET / HTTP/1.1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/4E423F
+Accept: */*
+Host: 10.0.0.1
+Connection: Keep-Alive
+
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/2.7.9
+Date: Mon, 07 Mar 2016 14:05:40 GMT
+Content-type: text/html
+Content-Length: 1933
+Last-Modified: Sun, 06 Mar 2016 03:57:16 GM
+
+The user-agent is Mozilla/5.0
