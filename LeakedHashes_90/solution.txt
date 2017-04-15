@@ -1,0 +1,29 @@
+We are given a list of usernames and passwords hashed with md5.
+The problem suggests that the passwords aren't very strong, so we can try looking
+up the hashes using an online database. I used https://www.hashkiller.co.uk/md5-decrypter.aspx
+
+I picked a random person (christene), whose password turned out to be "p0lyp".
+
+$ nc shell2017.picoctf.com 4534
+enter username:
+christene
+christene's password:p0lyp
+welcome to shady file server. would you like to access the cat ascii art database? y/n
+y
+
+...
+
+	 /\__/\
+	/`    '\
+  === 0  0 ===
+	\  --  /    - flag is 80b6d6e7a54b0ea26c176fedc700ed43
+
+   /        \
+  /          \
+ |            |
+  \  ||  ||  /
+   \_oo__oo_/#######o
+
+...
+
+80b6d6e7a54b0ea26c176fedc700ed43

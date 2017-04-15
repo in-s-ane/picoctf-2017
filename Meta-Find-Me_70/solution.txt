@@ -1,0 +1,17 @@
+The name of the problem, "Meta Find Me", suggests that there is information hidden in the
+metadata of the given image. We can show the metadata with the `exiftool` command.
+
+$ exiftool image.jpg
+
+...
+GPS Latitude                    : 88 deg 0' 0.00"
+GPS Longitude                   : 4 deg 0' 0.00"
+...
+Comment                         : "Your flag is flag_2_meta_4_me_<lat>_<lon>_06c3. Now find the GPS coordinates of this image! (Degrees only please)"
+...
+
+From the comment, we know that we need the latitude and longitude where the photo was taken, which
+is also in the metadata.
+
+From this, we can construct the flag:
+flag_2_meta_4_me_88_4_06c3

@@ -1,0 +1,40 @@
+Running `strings` on the binary doesn't show us anything but the hint asks us to
+see if there's an option to change the length of what strings considers as valid.
+Turns out the -n option allows us to change this length.
+
+$ strings --help
+Usage: strings [option(s)] [file(s)]
+ Display printable strings in [file(s)] (stdin by default)
+ The options are:
+  -a - --all                Scan the entire file, not just the data section [default]
+  -d --data                 Only scan the data sections in the file
+  -f --print-file-name      Print the name of the file before each string
+  -n --bytes=[number]       Locate & print any NUL-terminated sequence of at
+  -<number>                   least [number] characters (default 4).
+  -t --radix={o,d,x}        Print the location of the string in base 8, 10 or 16
+  -w --include-all-whitespace Include all whitespace as valid string characters
+  -o                        An alias for --radix=o
+  -T --target=<BFDNAME>     Specify the binary file format
+  -e --encoding={s,S,b,l,B,L} Select character size and endianness:
+							s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit
+  @<file>                   Read options from <file>
+  -h --help                 Display this information
+  -v -V --version           Print the program's version number
+strings: supported targets: elf64-x86-64 elf32-i386 elf32-x86-64 a.out-i386-linux pei-i386 pei-x86-64 elf64-l1om elf64-k1om elf64-little elf64-big elf32-little elf32-big pe-x86-64 pe-bigobj-x86-64 pe-i386 plugin srec symbolsrec verilog tekhex binary ihex
+Report bugs to <http://www.sourceware.org/bugzilla/>
+
+$ strings -n 3 yarn
+...
+Sub
+mit
+_me
+_fo
+r_I
+_am
+_th
+e_f
+lag
+...
+
+The flag is:
+Submit_me_for_I_am_the_flag

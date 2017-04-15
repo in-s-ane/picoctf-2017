@@ -1,0 +1,53 @@
+The key to starting off the problem lies in the hint:
+
+I think this game is running on a Node.js server. If it's configured poorly, you may be able to access the server's source. If my memory serves me correctly, Node servers have a special file that lists dependencies and a start command; maybe you can use that file to figure out where the other files are?
+
+The special file is the "package.json" file, and trying to visit /package.json tells us that we are on the right track.
+
+The "start" script runs the "server/serv.js" file, which we also have access to.
+From this, we can get the source code of the server and start looking for vulnerabilities.
+
+For this problem, the challenge is to figure out which of the many flag items is the correct one.
+
+The first step is to figure out when the flag actually gets revealed.
+In "game.js", we find the following in the executeItemUse function:
+
+    case "revealFlag":
+        if (entity.items[action.item].effects[i].check == 64) {
+            outcome.flag = process.env["PICO_CTF_FLAG"];
+        }
+        break;
+
+From this, we know that we need to pick up the flag that has an effect with the property "check" of 64.
+
+Looking at "config.js", we find the createFlag function which sets the check property based off the first parameter.
+We also see how the flags are generated:
+
+    items: Array.from(new Array(83), (_, idx) => {
+        if (idx >= 2) {
+            idx++
+        }
+
+        if (idx >= 77) {
+            idx++;
+        }
+
+        var r = Math.floor(idx / 5) + 1;
+        var c = (idx % 5) + 1;
+
+        return createFlag(idx, { r: r, c: c });
+    }),
+
+You can either reverse the check and figure out when idx+100 equals 64 and pick up the flag at those coordinates.
+
+The alternate method for figuring out which flag is the right one is to print out all the items on the floor and check for the right flag by running:
+
+> state.items
+
+The right flag is the one at row 13, column 5.
+
+Toaster used the Flag!
+A soft voice on the wind speaks to you: "The secret you are looking for is at_least_the_world_wasnt_destroyed_by_a_meteor_842aea1de69aa7c4069e8aae8815d22b. Use it wisely."
+All items were destroyed!
+
+at_least_the_world_wasnt_destroyed_by_a_meteor_842aea1de69aa7c4069e8aae8815d22b

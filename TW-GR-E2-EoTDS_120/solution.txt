@@ -1,0 +1,16 @@
+Like the last Toaster Wars problem, we can access the server source code, but we don't need it
+to solve.
+
+The last floor contains the flag, but we're not able to access it, as confirmed by the hint.
+However, there is an enemy also on the floor who is able to access the flag, so we need to
+coerce it to pick up the flag, and then kill it. You look at ai.js for how exactly the enemies move,
+but it's not necessary. It's also important to make sure that the enemy doesn't end up too close
+to you or you'll have to restart the game.
+The trick is to circle around the flag, and move diagonally when rounding the corners to coerce the enemy
+into the passage.
+
+Toaster used the Flag!
+A soft voice on the wind speaks to you: "The secret you are looking for is i_dont_want_to_say_goodbye__gets_me_every_time_2fa00d62583c852b0e5ae11dcdcbabe1. Use it wisely."
+Toaster dropped the Cinnamon.
+
+i_dont_want_to_say_goodbye__gets_me_every_time_2fa00d62583c852b0e5ae11dcdcbabe1

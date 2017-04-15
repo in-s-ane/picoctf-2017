@@ -1,0 +1,10 @@
+We're given a link to a website that just contains a login page. The name of the problem tells us that
+we need to perform an SQL injection, so we can try inputting the most basic query into the username
+and password fields:
+
+' OR 1=1 --
+
+Upon logging in, we are greeted with the following message:
+Welcome admin. Flag be_careful_what_you_let_people_ask_104d9ea430b41fb4c5560eecc0652111
+
+be_careful_what_you_let_people_ask_104d9ea430b41fb4c5560eecc0652111

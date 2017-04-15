@@ -1,0 +1,6 @@
+Judging from the picture given to us and the hints, we know that the encryption method was the enigma cipher.
+I used an online emulator: http://enigma.louisedade.co.uk/enigma.html
+
+Using notes.txt, set the correct settings to decrypt the flag:
+
+QUITEPUZZLINGINDEED
