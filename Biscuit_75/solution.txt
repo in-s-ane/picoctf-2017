@@ -1,0 +1,20 @@
+The name of the problem suggests that the server is checking our cookies and will display the flag if we have
+the right ones.
+
+Looking at the source, we see the following comment:
+<!-- Storing stuff in the same directory as your web server doesn't seem like a good idea -->
+<!-- Thankfully, we use a hidden one that is super PRIVATE, to protect our cookies.sqlite file -->
+
+Sure enough, visiting shell2017.picoctf.com:46787/cookies.sqlite will allow us to download an sqlite file
+We can load it up with sqlite and poke around the data. There's only one table, which makes things pretty straightforward.
+
+$ sqlite3 cookies.sqlite
+SQLite version 3.8.11.1 2015-07-29 20:00:57
+Enter ".help" for usage hints.
+sqlite> .tables
+moz_cookies
+sqlite> select * from moz_cookies;
+1|localhost|0|0|ID|F3MAqpWxIvESiUNLHsflVd|localhost|/|1489365457|1489279130600290|1489279057101857|0|0
+
+Changing the "ID" cookie to the string "F3MAqpWxIvESiUNLHsflVd" allows us to view the flag:
+a31bbaad652b861dec1cdf7a7fe9fc9d
