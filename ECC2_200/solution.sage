@@ -16,20 +16,24 @@ Q = E(Qx, Qy)
 
 _order = order(E)
 factors = [f[0]*f[1] for f in factor(_order)]
-l = []
+l = [2, 1, 4, 1, 129, 224, 5729, 13993, 1730599, 4590572]
 
-for factor in factors:
-    t = int(_order / factor)
-    tP = t*P
-    tQ = t*Q
-    for j in range(factor):
-        if j*tP == tQ:
-            print j*tP
-            l.append(j)
-            break
-    print l
+# Solves 10 of the discrete logs before crashing
+# l = []
 
-n = crt(l, factors)
+# # P*n = Q
+# for factor in factors[:10]:
+#     t = int(_order / factor)
+#     tP = t*P
+#     tQ = t*Q
+#     for j in range(factor):
+#         if j*tP == tQ:
+#             print j*tP
+#             l.append(j)
+#             break
+#     print l
+
+n = crt(l, factors[:len(l)])
 print n
 assert P*n == Q
 
