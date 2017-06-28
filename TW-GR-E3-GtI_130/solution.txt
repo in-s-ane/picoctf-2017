@@ -1,0 +1,33 @@
+The flag is unfairly blocked off at the end of the dungeon, so we can't pick it up legitimately.
+In order to solve this, you need to know how picking up items works.
+
+In game.js, we find the following chunk of code:
+
+	if(entity.items.length < entity.stats.maxItems){
+		var itId = -1;
+		var name = "";
+		for(var i = 0; i < state.items.length; i++){
+			if(state.items[i].location.r == entity.location.r && state.items[i].location.c == entity.location.c){
+				itId = state.items[i].id;
+				msg.outcome.push({
+					type: "item/get",
+					id: state.items[i].id,
+					item: state.items[i].name
+				});
+				break;
+			}
+		}
+	}
+
+	entity.items = entity.items.concat(state.items.filter(function(it){ return it.id == itId; }));
+	state.items = state.items.filter(function(it){ return it.id != itId; });
+
+This gives the player all the items that match a certain id. We can exploit this by picking up an item
+with the same ID as the flag in another floor, going to the last floor, dropping and picking it back up again.
+
+Looking at the list of objects in the developer console, we find that the ids are much lower than in previous
+games, starting at 0 instead of 10000. It might take a while, because not all the floors will have
+the minimum number of items required to spawn an item with the correct id.
+
+The flag is
+the_new_feature_where_you_manage_your_own_shelf_in_the_refrigerator_was_an_interesting_addition_cce09580fd5b2d3f9c706713ac272480
