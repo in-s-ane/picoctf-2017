@@ -1,0 +1,26 @@
+In order to perform an sql injection, a user must be created with the injection as its username/password.
+Upon logging in, three pieces of data are shown for each post: the post ID, username of the author, and the contents.
+
+The problem name tell us we need to use a UNION query to perform the injection, and the
+problem description tell us that the backend is powered by sqlite.
+
+Sqlite has a nice table called sqlite_master, which contains all sorts of data about the sqlite database,
+even including the SQL used to create the tables.
+
+Registering and logging in as the following user will allow us to get some valuable information about the tables.
+' UNION SELECT sql,sql,sql from sqlite_master --
+
+We select the sql column from sqlite_master 3 times since our UNION query needs to return the same number of columns as the
+initial query. (post id, username, contents)
+
+Sure enough, we get the following tables:
+CREATE TABLE posts(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, user text, post text)
+CREATE TABLE sqlite_sequence(name,seq)
+CREATE TABLE users(user text, pass text)
+
+Now that we know the name of the column used to store user passwords, we can perform a query similar to the first one:
+
+' UNION SELECT pass,pass,pass from users --
+
+One of the passwords is the flag:
+flag{union?_why_not_onion_a69464d4869c743e26c08df8686e4003}
