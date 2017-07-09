@@ -12,4 +12,4 @@ under the team name Thee in/s/ane Potato.
 * [James Wang](https://github.com/james9909)
 
 We solved all the problems, ultimately placing fourth.
-![Scoreboard](https://github.com/in-s-ane/picoctf-2017/raw/master/_Ranking/ranking.png)
+![Scoreboard](https://github.com/in-s-ane/picoctf-2017/raw/master/_Ranking/scoreboard.png)
