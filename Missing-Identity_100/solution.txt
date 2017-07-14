@@ -1,0 +1,9 @@
+Examining the bytes of the file, we see several png's stored within. This suggests
+that the file is a zip. However, the first 6 bytes are marked out, so it fails to unzip properly.
+We can repair the file by adding the necessary header bytes to indicate it's identity.
+
+According to http://www.garykessler.net/library/file_sigs.html, the first 6 bytes of a PKZIP archive
+file are 50 4B 03 04 50 4B.
+
+After replacing the first 6 bytes with the correct ones, we can unzip the archive and view the flag:
+zippidydooda44282285
