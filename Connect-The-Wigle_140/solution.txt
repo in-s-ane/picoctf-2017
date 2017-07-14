@@ -1,0 +1,4 @@
+We're given a sqlite database from an app called WiGLE. In the database, we find a series of
+gps coordinates, all close together. If we plot all the gps coordinates, we get the flag:
+
+flag{f0und_m3_cb8ccd73}
