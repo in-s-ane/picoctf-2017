@@ -1,0 +1,12 @@
+We are given a java class file, which we can decompile using a tool such as jd-gui, or an online
+website such as http://www.javadecompilers.com.
+
+After decompiling the class file, we find a hidden method called get_flag(), which presumably
+gives us the flag. We can either reverse engineer the encryption, or call the method
+in the main method directly. I chose to do the latter.
+
+$ javac problem.java
+$ java problem
+Nothing to see here
+[102, 108, 97, 103, 95, 123, 112, 114, 101, 116, 116, 121, 95, 99, 111, 111, 108, 95, 104, 117, 104, 125]
+flag_{pretty_cool_huh}
