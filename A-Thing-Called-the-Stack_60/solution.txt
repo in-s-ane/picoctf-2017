@@ -1,0 +1,25 @@
+We're given the following assembly code, and we're asked to find the difference between
+esp at the end of the code and the saved return address (which is ebp).
+
+foo:
+    pushl %ebp
+    mov %esp, %ebp
+    pushl %edi
+    pushl %esi
+    pushl %ebx
+    sub $0xc0, %esp
+    movl $0x1, (%esp)
+    movl $0x2, 0x4(%esp)
+    movl $0x3, 0x8(%esp)
+    movl $0x4, 0xc(%esp)
+
+Since we are told to assume a 32-bit operating system, we can also assume that each value
+on the stack takes up 4 bytes. Thus, every time we push something onto the stack we subtract
+esp by 4, since the stack grows downwards. Looking at the assembly, we see 4 calls to pushl.
+Thus, our total is 4 bytes per push * 4 pushes = 16.
+
+There is also a call to sub, which subtracts the value of esp by 0xc0 (192). None of the other
+operations will modify the stack, so we have our answer.
+
+192 + 16 = 208
+208 in hex is 0xd0, which is our flag.
