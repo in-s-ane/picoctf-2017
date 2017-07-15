@@ -1,0 +1,6 @@
+Looking at the packets in the pcap file, we see lots of pages and images being passed around.
+Looking deeper into the traffic, there are two suspicious images: r7jTjJ51.png and TPf54ih0.png.
+We can use wireshark to export the raw data in those two packets and view them as pngs.
+Combine the text on both the images to get the flag.
+
+50f527f1ecdc4391ddf85e24a2ec728a
