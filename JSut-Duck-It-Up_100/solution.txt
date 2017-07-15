@@ -1,0 +1,19 @@
+Looking at the given file, we can immediately recognize it as JSFuck, which is javascript
+written just using the symbols ()[]+!. We can either paste it in our browser and run it,
+or run it using node.
+
+$ node file
+undefined:2
+alert("aw_yiss_ducking_breadcrumbs_61637ee8")
+^
+
+ReferenceError: alert is not defined
+	at eval (eval at <anonymous> (/home/james/Dev/CTF/picoctf-2017/JSut-Duck-It-Up_100/file:1:890), <anonymous>:2:1)
+	at Object.<anonymous> (/home/james/Dev/CTF/picoctf-2017/JSut-Duck-It-Up_100/file:1:38432)
+	at Module._compile (module.js:571:32)
+	at Object.Module._extensions..js (module.js:580:10)
+	at Module.load (module.js:488:32)
+	at tryModuleLoad (module.js:447:12)
+	at Function.Module._load (module.js:439:3
+
+aw_yiss_ducking_breadcrumbs_61637ee8
