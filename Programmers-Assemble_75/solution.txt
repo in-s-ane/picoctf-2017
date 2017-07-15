@@ -1,0 +1,31 @@
+We need to provide an initial value for eax so that the program returns 1.
+
+Inspecting the assembly, we see a loop.
+
+    loop:
+        test %eax, %eax
+        jz fin
+        add %ecx, %ebx
+        dec %eax
+        jmp loop
+
+This loop jumps to the fin label when eax is zero, otherwise it adds the value of ecx to ebx, decrements eax, and continues the loop.
+
+Looking at the conditions to jump to the good label, we see that
+we need to set the value of ebx to 0x7ee0 (32480).
+
+Our program looks somewhat like this:
+
+eax = XXXXXXX
+ebx = 0
+ecx = 5
+while eax != 0:
+    ebx += ecx
+    eax -= 1
+if ebx == 32480:
+    return 1
+return 0
+
+The correct value of eax to satisfy the necessary conditions is 32480/5 = 6496.
+
+6496 in hexadecimal is 0x1960, which is our flag.
