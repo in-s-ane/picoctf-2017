@@ -1,0 +1,8 @@
+Running the binary tells us that we need to input a number between 0 and 4096.
+We can brute force this fairly easily using bash.
+
+The seq command will allow us to generate all numbers from 0 to x, which we can use
+to solve the problem.
+
+james9909@shell-web:/problems/3effd104fc674eb6865ebceeffc3bdc8$ for i in $(seq 4096); do ./bashloop $i; done | grep flag
+Yay! That's the number! Here be the flag: d968d0e2c5f8e01a252744cd80407392
